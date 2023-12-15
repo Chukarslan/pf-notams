@@ -1,0 +1,12 @@
+2023-12-15 00:56:37 +0000   14588 execution.flow     INFO     Start executing nodes in thread pool mode.
+2023-12-15 00:56:37 +0000   14588 execution.flow     INFO     Start to run 4 nodes with concurrency level 16.
+2023-12-15 00:56:37 +0000   14588 execution.flow     INFO     Executing node question_embedding. node run id: bcb95e76-6fe9-40cb-968c-7fb2de57f2fb_question_embedding_0
+2023-12-15 00:56:38 +0000   14588 execution.flow     INFO     Node question_embedding completes.
+2023-12-15 00:56:38 +0000   14588 execution.flow     INFO     Executing node retrieve_documents. node run id: bcb95e76-6fe9-40cb-968c-7fb2de57f2fb_retrieve_documents_0
+2023-12-15 00:56:39 +0000   14588 execution.flow     INFO     Node retrieve_documents completes.
+2023-12-15 00:56:39 +0000   14588 execution.flow     INFO     Executing node user_prompt. node run id: bcb95e76-6fe9-40cb-968c-7fb2de57f2fb_user_prompt_0
+2023-12-15 00:56:39 +0000   14588 execution.flow     INFO     Node user_prompt completes.
+2023-12-15 00:56:39 +0000   14588 execution.flow     INFO     Executing node llm_response. node run id: bcb95e76-6fe9-40cb-968c-7fb2de57f2fb_llm_response_0
+2023-12-15 00:56:40 +0000   14588 execution.flow     WARNING  Failed to calculate metrics due to exception: Calculating metrics for model test-llm-notams is not supported..
+2023-12-15 00:56:40 +0000   14588 execution.flow     WARNING  Output of llm_response is not json serializable, use str to store it.
+2023-12-15 00:56:40 +0000   14588 execution.flow     INFO     Node llm_response completes.
