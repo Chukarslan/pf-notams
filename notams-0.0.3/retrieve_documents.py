@@ -17,7 +17,7 @@ def retrieve_documents(question:str, index_name:str, embedding:List[float], sear
                                  index_name=index_name, 
                                  credential=AzureKeyCredential(search.api_key))
     
-    vector = Vector(value=embedding, k=20, fields="contentVector")
+    vector = Vector(value=embedding, k=50, fields="contentVector")
 
     results = search_client.search(
         search_text=question,

@@ -1,12 +1,61 @@
-2023-12-15 00:56:37 +0000   14588 execution.flow     INFO     Start executing nodes in thread pool mode.
-2023-12-15 00:56:37 +0000   14588 execution.flow     INFO     Start to run 4 nodes with concurrency level 16.
-2023-12-15 00:56:37 +0000   14588 execution.flow     INFO     Executing node question_embedding. node run id: bcb95e76-6fe9-40cb-968c-7fb2de57f2fb_question_embedding_0
-2023-12-15 00:56:38 +0000   14588 execution.flow     INFO     Node question_embedding completes.
-2023-12-15 00:56:38 +0000   14588 execution.flow     INFO     Executing node retrieve_documents. node run id: bcb95e76-6fe9-40cb-968c-7fb2de57f2fb_retrieve_documents_0
-2023-12-15 00:56:39 +0000   14588 execution.flow     INFO     Node retrieve_documents completes.
-2023-12-15 00:56:39 +0000   14588 execution.flow     INFO     Executing node user_prompt. node run id: bcb95e76-6fe9-40cb-968c-7fb2de57f2fb_user_prompt_0
-2023-12-15 00:56:39 +0000   14588 execution.flow     INFO     Node user_prompt completes.
-2023-12-15 00:56:39 +0000   14588 execution.flow     INFO     Executing node llm_response. node run id: bcb95e76-6fe9-40cb-968c-7fb2de57f2fb_llm_response_0
-2023-12-15 00:56:40 +0000   14588 execution.flow     WARNING  Failed to calculate metrics due to exception: Calculating metrics for model test-llm-notams is not supported..
-2023-12-15 00:56:40 +0000   14588 execution.flow     WARNING  Output of llm_response is not json serializable, use str to store it.
-2023-12-15 00:56:40 +0000   14588 execution.flow     INFO     Node llm_response completes.
+2023-12-29 14:45:50 +0000    2512 execution.flow     INFO     Start executing nodes in thread pool mode.
+2023-12-29 14:45:50 +0000    2512 execution.flow     INFO     Start to run 6 nodes with concurrency level 16.
+2023-12-29 14:45:50 +0000    2512 execution.flow     INFO     Executing node question_embedding. node run id: 7bb65ee9-be81-4b81-803e-d7c3044b633d_question_embedding_0
+2023-12-29 14:45:50 +0000    2512 execution.flow     INFO     Executing node gsd_parser. node run id: 7bb65ee9-be81-4b81-803e-d7c3044b633d_gsd_parser_0
+2023-12-29 14:45:50 +0000    2512 execution.flow     INFO     Node gsd_parser completes.
+2023-12-29 14:45:50 +0000    2512 execution.flow     INFO     Executing node python_node_yzr5. node run id: 7bb65ee9-be81-4b81-803e-d7c3044b633d_python_node_yzr5_0
+2023-12-29 14:45:51 +0000    2512 execution.flow     INFO     Node python_node_yzr5 completes.
+2023-12-29 14:45:51 +0000    2512 execution.flow     INFO     Node question_embedding completes.
+2023-12-29 14:45:51 +0000    2512 execution.flow     INFO     Executing node retrieve_documents. node run id: 7bb65ee9-be81-4b81-803e-d7c3044b633d_retrieve_documents_0
+2023-12-29 14:45:52 +0000    2512 execution.flow     INFO     Node retrieve_documents completes.
+2023-12-29 14:45:52 +0000    2512 execution.flow     INFO     Executing node user_prompt. node run id: 7bb65ee9-be81-4b81-803e-d7c3044b633d_user_prompt_0
+2023-12-29 14:45:52 +0000    2512 execution.flow     INFO     Node user_prompt completes.
+2023-12-29 14:45:52 +0000    2512 execution.flow     INFO     Executing node llm_response. node run id: 7bb65ee9-be81-4b81-803e-d7c3044b633d_llm_response_0
+2023-12-29 14:46:03 +0000    2512 execution          WARNING  [llm_response in line 0 (index starts from 0)] stderr> Exception occurs: BadRequestError: Error code: 400 - {'error': {'message': "This model's maximum context length is 4096 tokens. However, you requested 4211 tokens (3731 in the messages, 480 in the completion). Please reduce the length of the messages or completion.", 'type': 'invalid_request_error', 'param': 'messages', 'code': 'context_length_exceeded'}}
+2023-12-29 14:46:03 +0000    2512 execution          ERROR    Node llm_response in line 0 failed. Exception: OpenAI API hits BadRequestError: Error code: 400 - {'error': {'message': "This model's maximum context length is 4096 tokens. However, you requested 4211 tokens (3731 in the messages, 480 in the completion). Please reduce the length of the messages or completion.", 'type': 'invalid_request_error', 'param': 'messages', 'code': 'context_length_exceeded'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors].
+Traceback (most recent call last):
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\tools\common.py", line 196, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\tools\aoai.py", line 151, in chat
+    completion = self._client.chat.completions.create(**params)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\_core\openai_injector.py", line 93, in wrapper
+    return f(*args, **kwargs)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\_core\openai_injector.py", line 47, in wrapped_method
+    result = f(*args, **kwargs)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\_utils\_utils.py", line 303, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\resources\chat\completions.py", line 598, in create
+    return self._post(
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\_base_client.py", line 1088, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\_base_client.py", line 853, in request
+    return self._request(
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\_base_client.py", line 916, in _request
+    return self._retry_request(
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\_base_client.py", line 958, in _retry_request
+    return self._request(
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\_base_client.py", line 916, in _request
+    return self._retry_request(
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\_base_client.py", line 958, in _retry_request
+    return self._request(
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\openai\_base_client.py", line 930, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "This model's maximum context length is 4096 tokens. However, you requested 4211 tokens (3731 in the messages, 480 in the completion). Please reduce the length of the messages or completion.", 'type': 'invalid_request_error', 'param': 'messages', 'code': 'context_length_exceeded'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\_core\flow_execution_context.py", line 89, in invoke_tool
+    result = self._invoke_tool_with_timer(node, f, kwargs)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\_core\flow_execution_context.py", line 191, in _invoke_tool_with_timer
+    raise e
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\_core\flow_execution_context.py", line 185, in _invoke_tool_with_timer
+    return f(**kwargs)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\executor\flow_executor.py", line 973, in wrapper
+    return f(*args, **kwargs)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\_core\tool.py", line 106, in decorated_tool
+    output = func(*args, **kwargs)
+  File "C:\Users\arsla\.conda\envs\azure\lib\site-packages\promptflow\tools\common.py", line 211, in wrapper
+    raise WrappedOpenAIError(e)
+promptflow.tools.exception.WrappedOpenAIError: OpenAI API hits BadRequestError: Error code: 400 - {'error': {'message': "This model's maximum context length is 4096 tokens. However, you requested 4211 tokens (3731 in the messages, 480 in the completion). Please reduce the length of the messages or completion.", 'type': 'invalid_request_error', 'param': 'messages', 'code': 'context_length_exceeded'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors]
+2023-12-29 14:46:03 +0000    2512 execution          ERROR    Execution of one node has failed. Cancelling all running nodes: llm_response.

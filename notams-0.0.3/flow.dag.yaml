@@ -15,6 +15,15 @@ outputs:
     reference: ${llm_response.output}
     is_chat_output: true
 nodes:
+- name: question_embedding
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: oai-connection-1
+    deployment_name: test-notams-embeddings
+    input: ${inputs.question}
 - name: retrieve_documents
   type: python
   source:
@@ -25,15 +34,36 @@ nodes:
     index_name: test-2
     embedding: ${question_embedding.output}
     search: to_replace_with_connection_name
-- name: question_embedding
+- name: user_prompt
+  type: prompt
+  source:
+    type: code
+    path: user_prompt.jinja2
+  inputs:
+    documentation: ${retrieve_documents.output}
+- name: icao_parser
+  type: llm
+  source:
+    type: code
+    path: gsd_parset.jinja2
+  inputs:
+    deployment_name: df-completions-instruct
+    max_tokens: 100
+    temperature: 0
+    input: ${inputs.question}
+    top_p: 1
+    presence_penalty: 0
+    frequency_penalty: 0
+    best_of: 1
+  connection: oai-connection-1
+  api: completion
+- name: gsd_calculator
   type: python
   source:
-    type: package
-    tool: promptflow.tools.embedding.embedding
+    type: code
+    path: determine_airports.py
   inputs:
-    connection: oai-connection-1
-    deployment_name: test-notams-embeddings
-    input: ${inputs.question}
+    input_airports: ${icao_parser.output}
 - name: llm_response
   type: llm
   source:
@@ -42,16 +72,12 @@ nodes:
   inputs:
     deployment_name: test-llm-notams
     temperature: 0.2
-    max_tokens: 480
+    max_tokens: 680
     question: ${inputs.question}
     prompt_text: ${user_prompt.output}
     history: ${inputs.chat_history}
+    gsd_parser: ${gsd_calculator.output}
   connection: oai-connection-1
   api: chat
-- name: user_prompt
-  type: prompt
-  source:
-    type: code
-    path: user_prompt.jinja2
-  inputs:
-    documentation: ${retrieve_documents.output}
+  activate:
+    when: ""

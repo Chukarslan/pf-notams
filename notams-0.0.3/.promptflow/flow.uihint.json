@@ -28,7 +28,8 @@
         "inputs": {
           "question": [],
           "prompt_text": [],
-          "history": []
+          "history": [],
+          "gsd_parser": []
         }
       }
     },
@@ -36,6 +37,30 @@
       "variant_0": {
         "inputs": {
           "documentation": []
+        }
+      }
+    },
+    "icao_parser": {
+      "variant_0": {
+        "inputs": {
+          "text": [],
+          "calculate_gsd": [],
+          "input": []
+        }
+      }
+    },
+    "calculate_gsd": {
+      "variant_0": {
+        "inputs": {
+          "input_airports": []
+        }
+      }
+    },
+    "gsd_calculator": {
+      "variant_0": {
+        "inputs": {
+          "input_airports": [],
+          "input_airport": []
         }
       }
     }
