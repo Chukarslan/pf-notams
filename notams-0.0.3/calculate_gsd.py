@@ -41,14 +41,14 @@ def my_python_tool(input_airports: str) -> str:
     arrival_data = airports_df[airports_df['ICAO'] == arrival_airport][['Latitude', 'Longitude']]
 
     if departure_data.empty or arrival_data.empty:
-        return "Error: One or more airports not found in the CSV file."
+        return "No airports found"
 
     departure_coords = tuple(departure_data.values[0])
     arrival_coords = tuple(arrival_data.values[0])
 
     airports_in_zone_df = airports_in_zone(departure_coords, arrival_coords, offset_distance, airports_df)
 
-    airport_list = [departure_airport] + list(airports_in_zone_df['ICAO']) + [arrival_airport]
+    airport_list =list(airports_in_zone_df['ICAO'])
 
     # Remove duplicates
     unique_airports = []

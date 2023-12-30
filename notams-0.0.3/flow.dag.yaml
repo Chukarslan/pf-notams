@@ -42,11 +42,12 @@ nodes:
   inputs:
     deployment_name: test-llm-notams
     temperature: 0.2
-    max_tokens: 480
+    max_tokens: 780
     question: ${inputs.question}
     prompt_text: ${user_prompt.output}
     history: ${inputs.chat_history}
     gsd_parser: ${calculate_gsd.output}
+    top_p: 0.95
   connection: oai-connection-1
   api: chat
 - name: user_prompt
