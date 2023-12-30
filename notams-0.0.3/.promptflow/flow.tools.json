@@ -146,9 +146,38 @@
           "type": [
             "string"
           ]
+        },
+        "gsd_parser": {
+          "type": [
+            "string"
+          ]
         }
       },
       "source": "llm_response.jinja2"
+    },
+    "icao_parser.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "icao_parser.jinja2"
+    },
+    "calculate_gsd.py": {
+      "type": "python",
+      "inputs": {
+        "input_airports": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "Provided a string of airport codes as a list (eg. \"YBBN YSSY\"), return a list of airport codes that lie on the path between the two airports\naccording to the Greater Circle Distance formula. \n - The list should include the start and end airports. \n - The list should be in order of the path.",
+      "source": "calculate_gsd.py",
+      "function": "my_python_tool"
     }
   }
 }

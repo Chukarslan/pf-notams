@@ -46,6 +46,7 @@ nodes:
     question: ${inputs.question}
     prompt_text: ${user_prompt.output}
     history: ${inputs.chat_history}
+    gsd_parser: ${calculate_gsd.output}
   connection: oai-connection-1
   api: chat
 - name: user_prompt
@@ -55,3 +56,23 @@ nodes:
     path: user_prompt.jinja2
   inputs:
     documentation: ${retrieve_documents.output}
+- name: icao_parser
+  type: llm
+  source:
+    type: code
+    path: icao_parser.jinja2
+  inputs:
+    deployment_name: df-completions-instruct
+    max_tokens: 32
+    temperature: 0.2
+    top_p: 1
+    input: ${inputs.question}
+  connection: oai-connection-1
+  api: completion
+- name: calculate_gsd
+  type: python
+  source:
+    type: code
+    path: calculate_gsd.py
+  inputs:
+    input_airports: ${icao_parser.output}
