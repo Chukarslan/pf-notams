@@ -13,6 +13,53 @@
           "user_input": []
         }
       }
+    },
+    "retrieve_docs": {
+      "variant_0": {
+        "inputs": {
+          "question": [],
+          "embedding": []
+        }
+      }
+    },
+    "question_embeddings": {
+      "variant_0": {
+        "inputs": {
+          "input": []
+        }
+      }
+    },
+    "user_prompt": {
+      "variant_0": {
+        "inputs": {
+          "documentation": []
+        }
+      }
+    },
+    "chat_large_context": {
+      "variant_0": {
+        "inputs": {
+          "prompt_input": [],
+          "prompt_text": [],
+          "history": [],
+          "question": []
+        }
+      }
+    },
+    "airport_extractor": {
+      "variant_0": {
+        "inputs": {
+          "text": []
+        }
+      }
+    },
+    "airport_filter_relevant": {
+      "variant_0": {
+        "inputs": {
+          "input_airports": [],
+          "json_list": []
+        }
+      }
     }
   }
 }

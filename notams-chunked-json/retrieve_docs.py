@@ -17,16 +17,16 @@ def retrieve_documents(question:str, index_name:str, embedding:List[float], sear
                                  index_name=index_name, 
                                  credential=AzureKeyCredential(search.api_key))
     
-    vector = Vector(value=embedding, k=20, fields="contentVector")
+    vector = Vector(value=embedding, k=25)
 
     results = search_client.search(
         search_text=question,
         top=20,
-        search_fields=["content"],
-        vectors=[vector],
+        # search_fields=["message", "location"],
+        # vectors=[vector],
     )
 
-    docs = [{"id": doc["id"], "title": doc["title"], "content": doc["content"], "url": doc["url"]} 
+    docs = [{"content": doc["content"]} 
             for doc in results]
 
     return docs
