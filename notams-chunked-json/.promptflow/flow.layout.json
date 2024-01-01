@@ -1,0 +1,30 @@
+{
+  "nodeLayouts": {
+    "inputs": {
+      "x": 130,
+      "y": -247,
+      "index": -1
+    },
+    "outputs": {
+      "x": 122,
+      "y": 495,
+      "index": -1
+    },
+    "chat": {
+      "x": 171,
+      "y": 314,
+      "index": 0
+    },
+    "input_ner": {
+      "x": -191.5,
+      "y": -123,
+      "index": 1
+    },
+    "embeddings_parser": {
+      "x": -248.5,
+      "y": -28,
+      "index": 2
+    }
+  },
+  "orientation": "Vertical"
+}

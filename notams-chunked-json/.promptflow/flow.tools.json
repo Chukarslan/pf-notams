@@ -1,0 +1,38 @@
+{
+  "package": {},
+  "code": {
+    "chat.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "prompt_input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "chat.jinja2"
+    },
+    "input_ner.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "user_input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "input_ner.jinja2"
+    },
+    "embeddings_parser.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "prompt_template": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "embeddings_parser.jinja2"
+    }
+  }
+}

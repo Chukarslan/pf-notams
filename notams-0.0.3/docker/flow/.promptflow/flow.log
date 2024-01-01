@@ -1,0 +1,16 @@
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Start executing nodes in thread pool mode.
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Start to run 6 nodes with concurrency level 16.
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Executing node question_embedding. node run id: 5b01230e-e6ae-4cc1-9206-fd10f3f49b4b_question_embedding_0
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Executing node icao_parser. node run id: 5b01230e-e6ae-4cc1-9206-fd10f3f49b4b_icao_parser_0
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Node icao_parser completes.
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Executing node calculate_gsd. node run id: 5b01230e-e6ae-4cc1-9206-fd10f3f49b4b_calculate_gsd_0
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Node calculate_gsd completes.
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Node question_embedding completes.
+2023-12-30 13:41:56 +0000   16824 execution.flow     INFO     Executing node retrieve_documents. node run id: 5b01230e-e6ae-4cc1-9206-fd10f3f49b4b_retrieve_documents_0
+2023-12-30 13:41:57 +0000   16824 execution.flow     INFO     Node retrieve_documents completes.
+2023-12-30 13:41:57 +0000   16824 execution.flow     INFO     Executing node user_prompt. node run id: 5b01230e-e6ae-4cc1-9206-fd10f3f49b4b_user_prompt_0
+2023-12-30 13:41:57 +0000   16824 execution.flow     INFO     Node user_prompt completes.
+2023-12-30 13:41:57 +0000   16824 execution.flow     INFO     Executing node llm_response. node run id: 5b01230e-e6ae-4cc1-9206-fd10f3f49b4b_llm_response_0
+2023-12-30 13:41:58 +0000   16824 execution.flow     WARNING  Failed to calculate metrics due to exception: Calculating metrics for model test-llm-notams is not supported..
+2023-12-30 13:41:58 +0000   16824 execution.flow     WARNING  Output of llm_response is not json serializable, use str to store it.
+2023-12-30 13:41:58 +0000   16824 execution.flow     INFO     Node llm_response completes.

@@ -1,6 +1,10 @@
 from promptflow import tool
 import pandas as pd
 from geopy.distance import great_circle
+import os
+
+cwd = os.getcwd()
+print(cwd)
 
 @tool
 def my_python_tool(input_airports: str) -> str:

@@ -1,0 +1,69 @@
+{
+  "nodes": {
+    "Embedding_xwz4": {
+      "variant_0": {
+        "inputs": {
+          "input": []
+        }
+      }
+    },
+    "retrieve_documents": {
+      "variant_0": {
+        "inputs": {
+          "input1": [],
+          "question": [],
+          "embedding": []
+        }
+      }
+    },
+    "question_embedding": {
+      "variant_0": {
+        "inputs": {
+          "input": []
+        }
+      }
+    },
+    "llm_response": {
+      "variant_0": {
+        "inputs": {
+          "question": [],
+          "prompt_text": [],
+          "history": [],
+          "gsd_parser": []
+        }
+      }
+    },
+    "user_prompt": {
+      "variant_0": {
+        "inputs": {
+          "documentation": []
+        }
+      }
+    },
+    "icao_parser": {
+      "variant_0": {
+        "inputs": {
+          "text": [],
+          "calculate_gsd": [],
+          "input": []
+        }
+      }
+    },
+    "calculate_gsd": {
+      "variant_0": {
+        "inputs": {
+          "input_airports": [],
+          "input1": []
+        }
+      }
+    },
+    "gsd_calculator": {
+      "variant_0": {
+        "inputs": {
+          "input_airports": [],
+          "input_airport": []
+        }
+      }
+    }
+  }
+}

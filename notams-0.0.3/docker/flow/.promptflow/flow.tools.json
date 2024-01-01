@@ -1,0 +1,151 @@
+{
+  "code": {
+    "retrieve_documents.py": {
+      "type": "python",
+      "inputs": {
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "index_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "embedding": {
+          "type": [
+            "object"
+          ]
+        },
+        "search": {
+          "type": [
+            "CognitiveSearchConnection"
+          ]
+        }
+      },
+      "description": "Retrieve documents from the search index.",
+      "source": "retrieve_documents.py",
+      "function": "retrieve_documents"
+    },
+    "llm_response.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "prompt_text": {
+          "type": [
+            "string"
+          ]
+        },
+        "history": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "gsd_parser": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "llm_response.jinja2"
+    },
+    "user_prompt.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "documentation": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "user_prompt.jinja2"
+    },
+    "icao_parser.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "icao_parser.jinja2"
+    },
+    "calculate_gsd.py": {
+      "type": "python",
+      "inputs": {
+        "input_airports": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "Provided a string of airport codes as a list (eg. \"YBBN YSSY\"), return a list of airport codes that lie on the path between the two airports\naccording to the Greater Circle Distance formula. \n - The list should include the start and end airports. \n - The list should be in order of the path.",
+      "source": "calculate_gsd.py",
+      "function": "my_python_tool"
+    }
+  },
+  "package": {
+    "promptflow.tools.embedding.embedding": {
+      "name": "Embedding",
+      "description": "Use Open AI's embedding model to create an embedding vector representing the input text.",
+      "type": "python",
+      "module": "promptflow.tools.embedding",
+      "function": "embedding",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection",
+            "OpenAIConnection"
+          ]
+        },
+        "deployment_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "AzureOpenAIConnection"
+          ],
+          "capabilities": {
+            "completion": false,
+            "chat_completion": false,
+            "embeddings": true
+          },
+          "model_list": [
+            "text-embedding-ada-002",
+            "text-search-ada-doc-001",
+            "text-search-ada-query-001"
+          ]
+        },
+        "model": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "OpenAIConnection"
+          ],
+          "enum": [
+            "text-embedding-ada-002",
+            "text-search-ada-doc-001",
+            "text-search-ada-query-001"
+          ],
+          "allow_manual_entry": true
+        },
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "package": "promptflow-tools",
+      "package_version": "1.0.1"
+    }
+  }
+}

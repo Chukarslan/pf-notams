@@ -1,0 +1,18 @@
+{
+  "nodes": {
+    "embeddings_parser": {
+      "variant_0": {
+        "inputs": {
+          "prompt_template": []
+        }
+      }
+    },
+    "input_ner": {
+      "variant_0": {
+        "inputs": {
+          "user_input": []
+        }
+      }
+    }
+  }
+}
