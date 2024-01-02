@@ -22,12 +22,12 @@ nodes:
     path: chat.jinja2
   inputs:
     deployment_name: notams-chunked
-    max_tokens: 1024
-    temperature: 0.5
+    max_tokens: 1400
+    temperature: 0.4
     prompt_text: ${user_prompt.output}
     history: ${inputs.chat_history}
     question: ${user_prompt.output}
-    top_p: 0.95
+    top_p: 0.5
   connection: oai-connection-1
   api: chat
 - name: input_ner
@@ -75,6 +75,7 @@ nodes:
     path: user_prompt.jinja2
   inputs:
     documentation: ${airport_filter_relevant.output}
+    gsd_parser: ${nearest_airports_finder.output}
 - name: airport_extractor
   type: llm
   source:
@@ -95,3 +96,22 @@ nodes:
   inputs:
     input_airports: ${airport_extractor.output}
     json_list: ${retrieve_docs.output}
+- name: icao_parser
+  type: llm
+  source:
+    type: code
+    path: icao_parser.jinja2
+  inputs:
+    deployment_name: df-completions-instruct
+    max_tokens: 64
+    temperature: 0.1
+    input: ${inputs.question}
+  connection: oai-connection-1
+  api: completion
+- name: nearest_airports_finder
+  type: python
+  source:
+    type: code
+    path: nearest_airports_finder.py
+  inputs:
+    input_airports: ${icao_parser.output}

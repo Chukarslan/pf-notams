@@ -132,6 +132,11 @@
     "user_prompt.jinja2": {
       "type": "prompt",
       "inputs": {
+        "gsd_parser": {
+          "type": [
+            "string"
+          ]
+        },
         "documentation": {
           "type": [
             "string"
@@ -167,6 +172,30 @@
       },
       "description": "  Provided a string of airport codes as a list (eg. \"YBBN YSSY\"), filter the json list of documents to only include those that contain the airport codes.\n  Example of json:\n\n  input_airports = \"YBBN YSSY\"\n\n  [\n{\n  \"content\": {\n    \"id\": \"H8935/23\",\n    \"SubArea\": \"Movement and landing area\",\n    \"Condition\": \"Limitations\",\n    \"Subject\": \"Runway\",\n    \"Modifier\": \"Closed\",\n    \"message\": \"RWY 07/25 CLOSED RWY AVBL FOR TAXIING AIRCRAFT\",\n    \"location\": \"YSSY\"\n  }\n},\n{\n  \"content\": {\n    \"id\": \"J4781/23\",\n    \"SubArea\": \"Movement and landing area\",\n    \"Condition\": \"Limitations\",\n    \"Subject\": \"Taxiway(s)\",\n    \"Modifier\": \"Closed\",\n    \"message\": \"TWY L CLOSED DUE WIP TWY C12 CLOSED  TWY C13 CLOSED  TWY J CLOSED  EXC WITH 15MINS PN CTC TEL: (07) 3406 3072\",\n    \"location\": \"YBBN\"\n  }\n},\n{\n  \"content\": {\n    \"id\": \"H8932/23\",\n    \"SubArea\": \"Movement and landing area\",\n    \"Condition\": \"Limitations\",\n    \"Subject\": \"Runway\",\n    \"Modifier\": \"Closed\",\n    \"message\": \"RWY 07/25 CLOSED DUE WIP REFER METHOD OF WORKING PLAN 21/003\",\n    \"location\": \"YSSY\"\n  }\n}]\n  ",
       "source": "airtport_filter_relevant.py",
+      "function": "my_python_tool"
+    },
+    "icao_parser.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "icao_parser.jinja2"
+    },
+    "nearest_airports_finder.py": {
+      "type": "python",
+      "inputs": {
+        "input_airports": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "Provided a string of airport codes as a list (eg. \"YBBN YSSY\"), return a list of airport codes that lie on the path between the two airports\naccording to the Greater Circle Distance formula. \n - The list should include the start and end airports. \n - The list should be in order of the path.",
+      "source": "nearest_airports_finder.py",
       "function": "my_python_tool"
     }
   }

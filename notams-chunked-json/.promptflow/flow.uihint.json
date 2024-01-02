@@ -32,7 +32,8 @@
     "user_prompt": {
       "variant_0": {
         "inputs": {
-          "documentation": []
+          "documentation": [],
+          "gsd_parser": []
         }
       }
     },
@@ -58,6 +59,20 @@
         "inputs": {
           "input_airports": [],
           "json_list": []
+        }
+      }
+    },
+    "icao_parser": {
+      "variant_0": {
+        "inputs": {
+          "input": []
+        }
+      }
+    },
+    "nearest_airports_finder": {
+      "variant_0": {
+        "inputs": {
+          "input_airports": []
         }
       }
     }
