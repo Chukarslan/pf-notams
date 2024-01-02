@@ -132,12 +132,12 @@
     "user_prompt.jinja2": {
       "type": "prompt",
       "inputs": {
-        "gsd_parser": {
+        "documentation": {
           "type": [
             "string"
           ]
         },
-        "documentation": {
+        "gsd_parser": {
           "type": [
             "string"
           ]
