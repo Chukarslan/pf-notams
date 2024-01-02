@@ -1,0 +1,117 @@
+id: template_chat_flow
+name: Template Chat Flow
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  chat_history:
+    type: list
+    is_chat_history: true
+  question:
+    type: string
+    is_chat_input: true
+outputs:
+  answer:
+    type: string
+    reference: ${chat_large_context.output}
+    is_chat_output: true
+nodes:
+- name: chat_large_context
+  type: llm
+  source:
+    type: code
+    path: chat.jinja2
+  inputs:
+    deployment_name: notams-chunked
+    max_tokens: 1400
+    temperature: 0.4
+    prompt_text: ${user_prompt.output}
+    history: ${inputs.chat_history}
+    question: ${user_prompt.output}
+    top_p: 0.5
+  connection: oai-connection-1
+  api: chat
+- name: input_ner
+  type: prompt
+  source:
+    type: code
+    path: input_ner.jinja2
+  inputs:
+    user_input: ${inputs.question}
+- name: embeddings_parser
+  type: llm
+  source:
+    type: code
+    path: embeddings_parser.jinja2
+  inputs:
+    deployment_name: df-completions-instruct
+    max_tokens: 64
+    temperature: 0.1
+    prompt_template: ${input_ner.output}
+  connection: oai-connection-1
+  api: completion
+- name: retrieve_docs
+  type: python
+  source:
+    type: code
+    path: retrieve_docs.py
+  inputs:
+    question: ${embeddings_parser.output}
+    embedding: ${question_embeddings.output}
+    search: notams_chunked
+    index_name: chunked-json2
+- name: question_embeddings
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: oai-connection-1
+    deployment_name: test-notams-embeddings
+    input: ${inputs.question}
+- name: user_prompt
+  type: prompt
+  source:
+    type: code
+    path: user_prompt.jinja2
+  inputs:
+    documentation: ${airport_filter_relevant.output}
+    gsd_parser: ${nearest_airports_finder.output}
+- name: airport_extractor
+  type: llm
+  source:
+    type: code
+    path: airport_extractor.jinja2
+  inputs:
+    deployment_name: df-completions-instruct
+    max_tokens: 64
+    temperature: 0.1
+    text: ${inputs.question}
+  connection: oai-connection-1
+  api: completion
+- name: airport_filter_relevant
+  type: python
+  source:
+    type: code
+    path: airtport_filter_relevant.py
+  inputs:
+    input_airports: ${airport_extractor.output}
+    json_list: ${retrieve_docs.output}
+- name: icao_parser
+  type: llm
+  source:
+    type: code
+    path: icao_parser.jinja2
+  inputs:
+    deployment_name: df-completions-instruct
+    max_tokens: 64
+    temperature: 0.1
+    input: ${inputs.question}
+  connection: oai-connection-1
+  api: completion
+- name: nearest_airports_finder
+  type: python
+  source:
+    type: code
+    path: nearest_airports_finder.py
+  inputs:
+    input_airports: ${icao_parser.output}

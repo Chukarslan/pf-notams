@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/CognitiveSearchConnection.schema.json
+type: cognitive_search
+name: notams_chunked
+module: promptflow.connections
+api_base: https://chunk-notams.search.windows.net
+api_key: ${env:NOTAMS_CHUNKED_API_KEY}
+api_version: 2023-07-01-Preview

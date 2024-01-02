@@ -1,0 +1,12 @@
+Summarise the following data in a few lines for each airport location:
+{% for item in documentation %}
+{{item}}
+{% endfor %}
+
+If no data is available for a particular airport, simply state that there is no data available for that airport.
+
+
+Then in a seperate line, provide a couple of potential closest matches you could find from the data that could help answer the user's question.
+
+
+Finally, in the last response sentence you must inform the user as per the greater circle distance they may want to consider the notams for the airports in the vicinity of {{gsd_parser}} airports, this suggestion / feedback needs to be made when answering questions for any new routes. If there were "no airports found" simply ask the user to be aware of notams for the nearest airports.
