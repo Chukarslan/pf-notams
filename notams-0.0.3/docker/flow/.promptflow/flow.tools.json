@@ -88,6 +88,22 @@
       "description": "Provided a string of airport codes as a list (eg. \"YBBN YSSY\"), return a list of airport codes that lie on the path between the two airports\naccording to the Greater Circle Distance formula. \n - The list should include the start and end airports. \n - The list should be in order of the path.",
       "source": "calculate_gsd.py",
       "function": "my_python_tool"
+    },
+    "llm_node_6bvw.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "llm_node_6bvw.jinja2"
     }
   },
   "package": {
