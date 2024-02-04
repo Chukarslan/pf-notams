@@ -1,0 +1,190 @@
+{
+  "flow_runs": [
+    {
+      "run_id": "f4c39bca-4f14-40cb-a672-881c5bcd008c_0",
+      "status": "Completed",
+      "error": null,
+      "inputs": {
+        "chat_history": [],
+        "prompt": "fuck around witchu"
+      },
+      "output": {
+        "output": "Answerable"
+      },
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "f4c39bca-4f14-40cb-a672-881c5bcd008c",
+      "root_run_id": "f4c39bca-4f14-40cb-a672-881c5bcd008c",
+      "source_run_id": null,
+      "flow_id": "default_flow_id",
+      "start_time": "2024-02-04T15:16:16.781190Z",
+      "end_time": "2024-02-04T15:16:19.269482Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.completion",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "You will be a travel system that takes user prompts and categroises them into two categories \"searchable\" and \"answerable\". Searchable prompts are those queries that prompt the engine to seach for a specific flight / holiday destination based on constraints whereas answerable are those that do not need any specific information and can be generally answered from the agent's knowledgebase.\nIf the input is illegible or inappropriate, simply say Answerable in this case as well as per one of the below examples\n\n\"I'm feeling like a sunny holiday\"\nAgent output:Answerable\n\n\"I need to use the restroom\"\nAgent output:Answerable\n\n\"I want to plan a trip to Spyuros for a family of 4\"\nAgent output:Searchable\n\n\"auiosdnoiuasndiouasd\"\nAgent output:Answerable\n\n\"Can you check the flights for Lagos island?\"\nAgent output:Searchable\n\n\"{{text}}\"\nAgent output:",
+            "deployment_name": "chattering-completion",
+            "max_tokens": 256,
+            "temperature": 1.0,
+            "text": "fuck around witchu",
+            "stream": true
+          },
+          "output": [],
+          "start_time": 1707059776.78119,
+          "end_time": 1707059777.371411,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.resources.completions.Completions.create",
+              "type": "LLM",
+              "inputs": {
+                "self": "<openai.resources.completions.Completions object at 0x000001FA38AF40D0>",
+                "prompt": "You will be a travel system that takes user prompts and categroises them into two categories \"searchable\" and \"answerable\". Searchable prompts are those queries that prompt the engine to seach for a specific flight / holiday destination based on constraints whereas answerable are those that do not need any specific information and can be generally answered from the agent's knowledgebase.\nIf the input is illegible or inappropriate, simply say Answerable in this case as well as per one of the below examples\n\n\"I'm feeling like a sunny holiday\"\nAgent output:Answerable\n\n\"I need to use the restroom\"\nAgent output:Answerable\n\n\"I want to plan a trip to Spyuros for a family of 4\"\nAgent output:Searchable\n\n\"auiosdnoiuasndiouasd\"\nAgent output:Answerable\n\n\"Can you check the flights for Lagos island?\"\nAgent output:Searchable\n\n\"fuck around witchu\"\nAgent output:",
+                "model": "chattering-completion",
+                "suffix": null,
+                "max_tokens": 256,
+                "temperature": 1.0,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": true,
+                "logprobs": null,
+                "echo": false,
+                "stop": null,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "best_of": 1,
+                "logit_bias": {},
+                "user": "",
+                "extra_headers": {
+                  "x-ms-useragent": "promptflow-cli/1.2.0 prompt-flow-extension/1.10.0 (win32; x64) VSCode/1.86.0 promptflow-sdk/1.2.0 promptflow/1.2.0",
+                  "ms-azure-ai-promptflow-user-agent": "promptflow-cli/1.2.0 prompt-flow-extension/1.10.0 (win32; x64) VSCode/1.86.0 promptflow-sdk/1.2.0",
+                  "ms-azure-ai-promptflow-run-mode": "Test",
+                  "ms-azure-ai-promptflow-flow-id": "default_flow_id",
+                  "ms-azure-ai-promptflow-root-run-id": "f4c39bca-4f14-40cb-a672-881c5bcd008c",
+                  "ms-azure-ai-promptflow-called-from": "aoai-tool"
+                }
+              },
+              "output": [],
+              "start_time": 1707059776.78119,
+              "end_time": 1707059777.371411,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "router_completions"
+        }
+      ],
+      "variant_id": "",
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "duration": 2.488292,
+        "prompt_tokens": 210,
+        "completion_tokens": 0,
+        "total_tokens": 210
+      },
+      "result": {
+        "output": "Answerable"
+      },
+      "upload_metrics": false
+    }
+  ],
+  "node_runs": [
+    {
+      "node": "router_completions",
+      "flow_run_id": "f4c39bca-4f14-40cb-a672-881c5bcd008c",
+      "run_id": "f4c39bca-4f14-40cb-a672-881c5bcd008c_router_completions_0",
+      "status": "Completed",
+      "inputs": {
+        "deployment_name": "chattering-completion",
+        "max_tokens": 256,
+        "temperature": 1.0,
+        "text": "fuck around witchu"
+      },
+      "output": "<generator object generate_from_proxy at 0x000001FA38AB36F0>",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "f4c39bca-4f14-40cb-a672-881c5bcd008c_0",
+      "start_time": "2024-02-04T15:16:16.781190Z",
+      "end_time": "2024-02-04T15:16:19.268483Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.completion",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "You will be a travel system that takes user prompts and categroises them into two categories \"searchable\" and \"answerable\". Searchable prompts are those queries that prompt the engine to seach for a specific flight / holiday destination based on constraints whereas answerable are those that do not need any specific information and can be generally answered from the agent's knowledgebase.\nIf the input is illegible or inappropriate, simply say Answerable in this case as well as per one of the below examples\n\n\"I'm feeling like a sunny holiday\"\nAgent output:Answerable\n\n\"I need to use the restroom\"\nAgent output:Answerable\n\n\"I want to plan a trip to Spyuros for a family of 4\"\nAgent output:Searchable\n\n\"auiosdnoiuasndiouasd\"\nAgent output:Answerable\n\n\"Can you check the flights for Lagos island?\"\nAgent output:Searchable\n\n\"{{text}}\"\nAgent output:",
+            "deployment_name": "chattering-completion",
+            "max_tokens": 256,
+            "temperature": 1.0,
+            "text": "fuck around witchu",
+            "stream": true
+          },
+          "output": [],
+          "start_time": 1707059776.78119,
+          "end_time": 1707059777.371411,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.resources.completions.Completions.create",
+              "type": "LLM",
+              "inputs": {
+                "self": "<openai.resources.completions.Completions object at 0x000001FA38AF40D0>",
+                "prompt": "You will be a travel system that takes user prompts and categroises them into two categories \"searchable\" and \"answerable\". Searchable prompts are those queries that prompt the engine to seach for a specific flight / holiday destination based on constraints whereas answerable are those that do not need any specific information and can be generally answered from the agent's knowledgebase.\nIf the input is illegible or inappropriate, simply say Answerable in this case as well as per one of the below examples\n\n\"I'm feeling like a sunny holiday\"\nAgent output:Answerable\n\n\"I need to use the restroom\"\nAgent output:Answerable\n\n\"I want to plan a trip to Spyuros for a family of 4\"\nAgent output:Searchable\n\n\"auiosdnoiuasndiouasd\"\nAgent output:Answerable\n\n\"Can you check the flights for Lagos island?\"\nAgent output:Searchable\n\n\"fuck around witchu\"\nAgent output:",
+                "model": "chattering-completion",
+                "suffix": null,
+                "max_tokens": 256,
+                "temperature": 1.0,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": true,
+                "logprobs": null,
+                "echo": false,
+                "stop": null,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "best_of": 1,
+                "logit_bias": {},
+                "user": "",
+                "extra_headers": {
+                  "x-ms-useragent": "promptflow-cli/1.2.0 prompt-flow-extension/1.10.0 (win32; x64) VSCode/1.86.0 promptflow-sdk/1.2.0 promptflow/1.2.0",
+                  "ms-azure-ai-promptflow-user-agent": "promptflow-cli/1.2.0 prompt-flow-extension/1.10.0 (win32; x64) VSCode/1.86.0 promptflow-sdk/1.2.0",
+                  "ms-azure-ai-promptflow-run-mode": "Test",
+                  "ms-azure-ai-promptflow-flow-id": "default_flow_id",
+                  "ms-azure-ai-promptflow-root-run-id": "f4c39bca-4f14-40cb-a672-881c5bcd008c",
+                  "ms-azure-ai-promptflow-called-from": "aoai-tool"
+                }
+              },
+              "output": [],
+              "start_time": 1707059776.78119,
+              "end_time": 1707059777.371411,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "router_completions"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "prompt_tokens": 210,
+        "completion_tokens": 0,
+        "total_tokens": 210,
+        "duration": 2.487293
+      },
+      "result": "<generator object generate_from_proxy at 0x000001FA38AB36F0>"
+    }
+  ]
+}

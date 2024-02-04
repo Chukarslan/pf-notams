@@ -1,0 +1,43 @@
+inputs:
+  chat_history:
+    type: list
+    default: []
+    is_chat_history: true
+    is_chat_input: false
+  prompt:
+    type: string
+    default: ""
+    is_chat_input: true
+outputs:
+  output:
+    type: string
+    is_chat_output: true
+    reference: ""
+nodes:
+- name: router_completions
+  type: llm
+  source:
+    type: code
+    path: router_completions.jinja2
+  inputs:
+    deployment_name: chattering-completion
+    max_tokens: 256
+    temperature: 1
+    text: ${inputs.prompt}
+  connection: oai-connection-2
+  api: completion
+- name: standard_response_no_search
+  type: llm
+  source:
+    type: code
+    path: standard_response_no_search.jinja2
+  inputs:
+    deployment_name: chattering-completion
+    max_tokens: 256
+    temperature: 1
+    text: ${inputs.prompt}
+  connection: oai-connection-2
+  api: completion
+  activate:
+    when: ${router_completions.output}
+    is: Answerable

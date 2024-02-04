@@ -1,7 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/promptflow/latest/CognitiveSearchConnection.schema.json
-type: cognitive_search
-name: to_replace_with_connection_name
-module: promptflow.connections
-api_base: https://notams-ai-search-2.search.windows.net
-api_key: ${env:TO_REPLACE_WITH_CONNECTION_NAME_API_KEY}
-api_version: 2023-07-01-Preview

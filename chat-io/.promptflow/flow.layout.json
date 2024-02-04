@@ -1,0 +1,25 @@
+{
+  "nodeLayouts": {
+    "inputs": {
+      "x": 285.97208349753083,
+      "y": -17.411166610660445,
+      "index": -1
+    },
+    "outputs": {
+      "x": 550,
+      "y": 42,
+      "index": -1
+    },
+    "router_completions": {
+      "x": 283.89031886370884,
+      "y": 221.31357409046169,
+      "index": 0
+    },
+    "standard_response_no_search": {
+      "x": 70.51920858869589,
+      "y": 362.36229992706797,
+      "index": 1
+    }
+  },
+  "orientation": "Vertical"
+}

@@ -1,0 +1,25 @@
+{
+  "nodes": {
+    "router_completions": {
+      "variant_0": {
+        "inputs": {
+          "text": []
+        }
+      }
+    },
+    "router": {
+      "variant_0": {
+        "inputs": {
+          "input1": []
+        }
+      }
+    },
+    "standard_response_no_search": {
+      "variant_0": {
+        "inputs": {
+          "text": []
+        }
+      }
+    }
+  }
+}
