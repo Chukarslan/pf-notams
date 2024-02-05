@@ -58,16 +58,4 @@ nodes:
   source:
     type: code
     path: execute_serp_search.py
-  inputs:
-    input1: ${parser_options.output}
-- name: send_email
-  type: python
-  source:
-    type: code
-    path: sned_email.py
-  inputs:
-    email: ${inputs.prompt}
-    reference_docs: ${execute_serp_search.output}
-  activate:
-    when: ${standard_response_no_search.output}
-    is: Email operation executed
+  inputs: {}

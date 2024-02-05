@@ -1,2 +1,31 @@
+You must analyse the given query and determine weather you will need to query for flights, hotels or both. If you do not find the information associated inside the query you must simply return the empty fields associated
+instead. Note the date today is 2024-02-05 (YYYY-MM-DD)
 
-Write a simple {{text}} program that displays the greeting message when executed.
+The fields you must populate are as follows:
+
+
+departure_id (airport code like LHR for Heathrow)
+arrival_id (airport code like LHR for Heathrow)
+outbound_date (in YYYY-MM-DD)
+return_date (in YYYY-MM-DD)
+
+Additionally if the query contains information / queestion for a hotel stay at a specific location match the dates with the fileds above and additionaly return a query string q lik "hotels near Malaga" (assuming Malaga was
+the intent of the query and there was a request to search for hotels as well)
+
+The additional fields would be as follows
+
+q (Parameter defines the search query. You can use anything that you would use in a regular Google Hotels search)
+check_in_date (match this with the outbound_date)
+check_out_date (metch this with the return_date)
+
+For example:
+
+User input: I'm feeling like a sunny holiday.Sure I can help you with that! How about a trip to Malaga? Anywhere specific you are departing from? Yes I'm going from london thinking of like a 1 week trip in April for 2 people.
+Response:{"departure_id":"LHR", "arrival_id":"AGP", "outbound_date":"2024-04-08", "return_date":"2024-04-15"}
+
+User input: Hello bro how are you. I'm feeling like a sunny holiday.Sure I can help you with that! How about a trip to Malaga? Anywhere specific you are departing from? Yes I'm going from london thinking of like a 1 week trip in April for 2 people. I think I need a hotel too. Okay sure I''l look it up. Thanks bro
+Response:{"departure_id":"LHR", "arrival_id":"AGP", "outbound_date":"2024-04-08", "return_date":"2024-04-15", "q":"hotels in malaga", "check_in_date":"2024-04-08", "check_out_date":"2024-04-15"}
+
+Now here is the real user conversation input:
+User input: {{text}}
+Response:

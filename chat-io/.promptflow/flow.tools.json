@@ -164,7 +164,7 @@
     "execute_serp_search.py": {
       "type": "python",
       "inputs": {
-        "input1": {
+        "input": {
           "type": [
             "string"
           ]
