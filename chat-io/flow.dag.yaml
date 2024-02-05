@@ -12,9 +12,22 @@ outputs:
   output:
     type: string
     is_chat_output: true
-    reference: ""
+    reference: ${standard_response_no_search.output}
 nodes:
-- name: router_completions
+- name: standard_response_no_search
+  type: llm
+  source:
+    type: code
+    path: standard_response_no_search.jinja2
+  inputs:
+    deployment_name: chattering-completion
+    max_tokens: 256
+    temperature: 1
+    text_input: ${inputs.prompt}
+    reference_docs: ${execute_serp_search.output}
+  connection: oai-connection-2
+  api: completion
+- name: search_determiner
   type: llm
   source:
     type: code
@@ -26,18 +39,35 @@ nodes:
     text: ${inputs.prompt}
   connection: oai-connection-2
   api: completion
-- name: standard_response_no_search
+- name: parser_options
   type: llm
   source:
     type: code
-    path: standard_response_no_search.jinja2
+    path: parser_hotels.jinja2
   inputs:
     deployment_name: chattering-completion
-    max_tokens: 256
-    temperature: 1
+    max_tokens: 16
     text: ${inputs.prompt}
   connection: oai-connection-2
   api: completion
   activate:
-    when: ${router_completions.output}
-    is: Answerable
+    when: ${search_determiner.output}
+    is: Searchable
+- name: execute_serp_search
+  type: python
+  source:
+    type: code
+    path: execute_serp_search.py
+  inputs:
+    input1: ${parser_options.output}
+- name: send_email
+  type: python
+  source:
+    type: code
+    path: sned_email.py
+  inputs:
+    email: ${inputs.prompt}
+    reference_docs: ${execute_serp_search.output}
+  activate:
+    when: ${standard_response_no_search.output}
+    is: Email operation executed

@@ -93,13 +93,125 @@
     "standard_response_no_search.jinja2": {
       "type": "llm",
       "inputs": {
-        "text": {
+        "reference_docs": {
+          "type": [
+            "string"
+          ]
+        },
+        "text_input": {
           "type": [
             "string"
           ]
         }
       },
       "source": "standard_response_no_search.jinja2"
+    },
+    "info_docs.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "info_docs.jinja2"
+    },
+    "llm_node_08jz.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "llm_node_08jz.jinja2"
+    },
+    "router_channel.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "router_channel.jinja2"
+    },
+    "parser_fligts.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "parser_fligts.jinja2"
+    },
+    "parser_hotels.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "parser_hotels.jinja2"
+    },
+    "execute_serp_search.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "execute_serp_search.py",
+      "function": "my_python_tool"
+    },
+    "strip_refrences.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "strip_refrences.py",
+      "function": "my_python_tool"
+    },
+    "check_extract_email.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "check_extract_email.jinja2"
+    },
+    "sned_email.py": {
+      "type": "python",
+      "inputs": {
+        "email": {
+          "type": [
+            "string"
+          ]
+        },
+        "reference_docs": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "sned_email.py",
+      "function": "my_python_tool"
     }
   }
 }

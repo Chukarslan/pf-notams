@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "router_completions": {
+    "search_determiner": {
       "variant_0": {
         "inputs": {
           "text": []
@@ -17,7 +17,80 @@
     "standard_response_no_search": {
       "variant_0": {
         "inputs": {
+          "text": [],
+          "text_input": [],
+          "reference_docs": []
+        }
+      }
+    },
+    "info_docs": {
+      "variant_0": {
+        "inputs": {
           "text": []
+        }
+      }
+    },
+    "search_engine": {
+      "variant_0": {
+        "inputs": {
+          "query": []
+        }
+      }
+    },
+    "generate_query_string": {
+      "variant_0": {
+        "inputs": {
+          "text": []
+        }
+      }
+    },
+    "router_channel": {
+      "variant_0": {
+        "inputs": {
+          "text": []
+        }
+      }
+    },
+    "parser_options": {
+      "variant_0": {
+        "inputs": {
+          "text": []
+        }
+      }
+    },
+    "parser_flights": {
+      "variant_0": {
+        "inputs": {
+          "text": []
+        }
+      }
+    },
+    "execute_serp_search": {
+      "variant_0": {
+        "inputs": {
+          "input1": []
+        }
+      }
+    },
+    "strip_refrences": {
+      "variant_0": {
+        "inputs": {
+          "input1": []
+        }
+      }
+    },
+    "check_extract_email": {
+      "variant_0": {
+        "inputs": {
+          "text": []
+        }
+      }
+    },
+    "send_email": {
+      "variant_0": {
+        "inputs": {
+          "email": [],
+          "reference_docs": []
         }
       }
     }
